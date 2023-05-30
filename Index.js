@@ -7,11 +7,17 @@ const cookieParser = require("cookie-parser");
 const usersRoutes = require("./Routers/UserSchem");
 const eventRoutes = require("./Routers/eventRoutes");
 const adminRoutes = require("./Routers/adminRoutes");
+const locationRoutes = require("./Routers/locationRoutes")
 const checkAuth = require("./Auth/checkAuth");
 
 const app = express();
 
-mongoose.connect("mongodb+srv://Chaim24:" + process.env.MongoPasword + "@binders.uazlu3v.mongodb.net/binders", { useNewUrlParser: true, useUnifiedTopology: true });
+// mongoose.connect("mongodb+srv://Chaim24:" + process.env.MongoPasword + "@binders.uazlu3v.mongodb.net/binders", { useNewUrlParser: true, useUnifiedTopology: true });
+
+
+mongoose.connect("mongodb+srv://orMenasheJbh:AIdcyfEddcURFh5X@cluster0.5xlyefj.mongodb.net/events_organizer", { useNewUrlParser: true, useUnifiedTopology: true });
+
+
 
 mongoose.connection.on('connected', () => {
     console.log("Mongo db Connected !");
@@ -37,6 +43,7 @@ app.post("/checkAuth", checkAuth, (req, res) => { return res.status(200).json({ 
 app.use('/users', usersRoutes);
 app.use('/event', eventRoutes);
 app.use('/admin', adminRoutes);
+app.use('/location', locationRoutes);
 
 
 app.use((req, res, next) => {
