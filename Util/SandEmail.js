@@ -3,15 +3,15 @@ const nodemailer = require("nodemailer");
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "chaimbinder31@gmail.com",
-    pass: "vqxqjtozupxxmass",
+    user: "ormjbh@gmail.com",
+    pass: "oscogfjjxliynzgo",
   },
 });
 
 function retSend(nameFum, pass) {
   const mailOptions = {
-    from: "chaimbinder31@gmail.com",
-    to: "chaimbinder31@gmail.com",
+    from: "Organizer Events<ormjbh@gmail.com>",
+    to: "ormjbh@gmail.com",
     subject: nameFum + " שכח את הסיסמא שלו ...",
     text: "מסור לו את הסיסמא שלו .. : " + pass,
   };
