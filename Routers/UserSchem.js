@@ -91,12 +91,12 @@ const obj = {
     UserSchem.findOne({ Name: name + " " + fum }).then((response) => {
       if (response) {
         sendEmailToAdmin(name + " " + fum, response.password)
-          .then(() => {
-            res.status(200).json("הודעה נשלחה למנהל מערכת ..");
-          })
-          .catch((e) => {
-            res.status(304).json(e);
-          });
+        .then(() => {
+          res.status(200).json("הודעה נשלחה למנהל מערכת ..");
+        })
+        .catch((e) => {
+          res.status(304).json(e);
+        });
       } else {
         res.status(401).send("שם לא מזוהה ..");
       }

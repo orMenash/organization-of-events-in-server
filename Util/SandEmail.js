@@ -13,7 +13,7 @@ function retSend(nameFum, pass) {
     from: "Organizer Events<ormjbh@gmail.com>",
     to: "ormjbh@gmail.com",
     subject: nameFum + " שכח את הסיסמא שלו ...",
-    text: "מסור לו את הסיסמא שלו .. : " + pass,
+    text: "סיסמתך לאתר אירגון אירועים היא :  " + pass,
   };
   const myPromise = new Promise((resolve, reject) => {
     transporter.sendMail(mailOptions, function (error, info) {

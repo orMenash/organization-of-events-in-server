@@ -12,10 +12,10 @@ const checkAuth = require("./Auth/checkAuth");
 
 const app = express();
 
-// mongoose.connect("mongodb+srv://Chaim24:" + process.env.MongoPasword + "@binders.uazlu3v.mongodb.net/binders", { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect("mongodb+srv://Chaim24:" + process.env.MongoPasword + "@binders.uazlu3v.mongodb.net/binders", { useNewUrlParser: true, useUnifiedTopology: true });
 
 
-mongoose.connect("mongodb+srv://orMenasheJbh:AIdcyfEddcURFh5X@cluster0.5xlyefj.mongodb.net/events_organizer", { useNewUrlParser: true, useUnifiedTopology: true });
+// mongoose.connect("mongodb+srv://orMenasheJbh:AIdcyfEddcURFh5X@cluster0.5xlyefj.mongodb.net/events_organizer", { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 
