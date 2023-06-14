@@ -20,6 +20,7 @@ const obj = {
       Date: req.body.Date,
       photoUser: req.body.photoUser,
       Active: true,
+      loc: req.body.loc
     });
     console.log(newEvent);
     try {
