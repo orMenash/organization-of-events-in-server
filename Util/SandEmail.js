@@ -1,17 +1,19 @@
 const nodemailer = require("nodemailer");
 
+
+
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "ormjbh@gmail.com",
-    pass: "oscogfjjxliynzgo",
+    user: process.env.MANAGER_EMAIL,
+    pass: process.env.GOOGLE_EMAIL_KEY, //process.env.GOOGLE_EMAIL_KEY
   },
 });
 
 function retSend(nameFum, pass) {
   const mailOptions = {
-    from: "Organizer Events<ormjbh@gmail.com>",
-    to: "ormjbh@gmail.com",
+    from: `Organizer Events<${process.env.MANAGER_EMAIL}>`,
+    to: process.env.MANAGER_EMAIL,
     subject: nameFum + " שכח את הסיסמא שלו ...",
     text: "סיסמתך לאתר אירגון אירועים היא :  " + pass,
   };
