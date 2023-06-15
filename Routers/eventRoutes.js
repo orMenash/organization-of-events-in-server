@@ -1,3 +1,5 @@
+const axios = require('axios');
+
 const express = require("express");
 const router = express.Router();
 const Event = require("../Schems/CreateEvent");
@@ -15,12 +17,30 @@ const obj = {
     });
   },
   CreateEvent: async (req, res) => {
+
+    let urlAdderss = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${req.body.loc}&key=${process.env.GOOGLE_MAP_KEY}`;
+    let location;
+
+    await axios
+    .get(urlAdderss,
+   )
+    .then((res) => {
+      console.log(JSON.stringify(res.data), 111111);
+      location = {lat: res.data.results[0].geometry.location.lat,
+                  lng: res.data.results[0].geometry.location.lng
+                  }
+    })
+    .catch((err) => {
+      console.log(err, 22222);
+    });
+
+
     const newEvent = new Event({
       NameEvent: req.body.NameEvent,
       Date: req.body.Date,
       photoUser: req.body.photoUser,
       Active: true,
-      loc: req.body.loc
+      loc: location
     });
     console.log(newEvent);
     try {
@@ -96,7 +116,10 @@ const obj = {
       return res.status(200).json(response);
     });
   },
+
 };
+
+
 router.get("/allEvents", obj.allEvents);
 router.get("/ViewPastEvents", obj.ViewPastEvents);
 router.post("/CreateEvent", obj.CreateEvent);
